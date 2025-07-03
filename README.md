@@ -155,4 +155,4 @@ To merge the dense `LiDAR point cloud` with a sparse `ChromaFiltered SfM reconst
   - Dataset used in study: https://www.eth3d.net/datasets 
   - For our custom dataset, we have included in `meiclablidar` folder. The pre-trained mnodel for this example is in `exampleoutput` folder we provided which can be checked through the SIBR viewer
   - LiDAR ply file + image dataset/video are required for your custom training
-  - You can find our Google Drive link in: 
+  - You can find our Google Drive link in: https://drive.google.com/drive/folders/1m0OWiFNO1CpOMBa8FrSHZ8kzSDerXBo7?usp=sharing
