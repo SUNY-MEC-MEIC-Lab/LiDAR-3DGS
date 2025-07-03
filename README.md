@@ -6,7 +6,7 @@ This repository contains scripts and configuration for capturing, calibrating, c
 In this paper, we introduce LiDAR-3DGS, a novel approach for integrating LiDAR data into 3D Gaussian Splatting to enhance scene reconstructions. Rather than relying solely on image-based features, we integrate LiDAR-based features as initialization. To achieve this, we present a novel sampling technique – ChromaFilter – which prioritizes LiDAR points based on color diversity. It effectively samples important features while sparsifying redundant points. Experimental results on both a custom dataset and the ETH3D dataset show consistent improvements in PSNR and SSIM. A ChromaFilter sampling density of n=10 yields a notable 7.064% gain on PSNR and 0.564% gain on SSIM on the custom dataset, while ETH3D reconstructions exhibit an average PSNR increase of 4.915% and SSIM gain of 0.5951%. Our method provides practical solution for incorporating LiDAR data into 3DGS. Because many operational industrial robots are already equipped with both LiDAR and cameras, our method can be easily adopted to industrial robots to reconstruct more accurate 3DGS models for engineering and remote inspections.
 
 #### **Notes**: For more information, check our preprint article.  
-https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5246895
+#### https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5246895
 ---
 
 ## **Table of Contents**
