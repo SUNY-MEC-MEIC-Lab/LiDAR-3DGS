@@ -64,7 +64,7 @@ We estimate the 4×4 rigid‐body transform T between LiDAR and camera frames:
 
   2. **LiDAR-Camera Extrinsics**  
   `direct_visual_lidar_calibration Repo`: https://github.com/koide3/direct_visual_lidar_calibration  
-  This can be found in **LiDAR Processing** Folder  
+
   - **direct_visual_lidar_calibration Commands**:  
     1. **Recorded bag files in `ouster` folder**: Record `/ouster/points, /ouster/imu, /flir/image_raw` by moving the sensors up and down.  
     2. **Preprocessing**:`rosrun direct_visual_lidar_calibration preprocess ouster ouster_preprocessed -dv \ --camera_info_topic /flir_adk/camera_info \ --image_topic /flir_adk/image_raw \ --points_topic /ouster/points \ --camera_model plumb_bob \ --camera_intrinsic 1119.798146,1118.683090,740.720832,530.000662 \ --camera_distortion_coeffs -0.363603,0.131881,0.001062,-0.000594,0.000000`
