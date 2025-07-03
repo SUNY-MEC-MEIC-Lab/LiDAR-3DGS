@@ -46,9 +46,9 @@ To generate a dense, colorized LiDAR point cloud suitable for 3DGS training, we 
 **Recording**  
 
 `rosbag record /ouster/points /ouster/imu /flir/image_raw`  
-  /ouster/points      # sensor_msgs/PointCloud2  
-  /ouster/imu         # sensor_msgs/IMU  
-  /flir/image_raw     # sensor_msgs/Image  
+  - /ouster/points      # sensor_msgs/PointCloud2  
+  - /ouster/imu         # sensor_msgs/IMU  
+  - /flir/image_raw     # sensor_msgs/Image  
 
 
 ### **2 Extrinsic Calibration**  
