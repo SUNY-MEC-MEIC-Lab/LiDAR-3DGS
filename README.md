@@ -35,7 +35,8 @@ To generate a dense, colorized LiDAR point cloud suitable for 3DGS training, we 
   - 360° × 90° FOV; 32 channels; up to 655,360 pts/s @ 66 Mbps  
   - Range: 0.3 – 35 m; scan rate 10 – 20 Hz  
 - **Camera**: FLIR Blackfly S (Sony IMX273)  
-  - 1440 × 1080 px; up to 60 Hz; 70° FOV  
+  - 1440 × 1080 px; up to 60 Hz; 70° FOV
+- **GPU**: NVIDIA RTX 4080 (16GB)  
 
 **Software**  
 - Ubuntu 20.04 LTS  
