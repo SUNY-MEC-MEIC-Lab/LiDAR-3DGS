@@ -21,7 +21,7 @@ In this paper, we introduce LiDAR-3DGS, a novel approach for integrating LiDAR d
    1. [Coarse Manual Alignment](#1-coarse-manual-alignment)  
    2. [Fine Registration via ICP](#2-fine-registration-via-icp)  
 
-4. [LiDAR-3DGS-Training]
+4. [LiDAR-3DGS-Training] (#additional-notes)
 ---
 
 ## **LiDAR Data Processing & Color Mapping**
