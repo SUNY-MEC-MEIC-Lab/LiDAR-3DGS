@@ -105,7 +105,7 @@ Use the R3LIVE module to project each time-synced, extrinsically aligned LiDAR p
 
 ## **ChromaFilter**  
 **ChromaFilter: Color-Based LiDAR point cloud Subsampling**  
-To further reduce redundant color information and focus on unique chromatic features, we implement a “ChromaFilter” that subsamples the point cloud by limiting the number of points per unique RGB value.
+To  focus on unique LiDAR features, we introduce a color-based sampling technique, ChromaFilter. It works by limiting the number of points per unique RGB value.
 
 - **Guides**  
   **Prerequisites**  
