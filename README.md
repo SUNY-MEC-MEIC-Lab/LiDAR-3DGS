@@ -21,10 +21,13 @@ In this paper, we introduce LiDAR-3DGS, a novel approach for integrating LiDAR d
 3. [LiDAR–SfM Alignment](#lidar–sfm-alignment)  
    1. [Coarse Manual Alignment](#1-coarse-manual-alignment)  
    2. [Fine Registration via ICP](#2-fine-registration-via-icp)  
+   3. [Merge Two Point Clouds](#3-merge-two-point-clouds)
 
-4. [LiDAR-3DGS Training](#liDAR-3dgs-training)
+4. [LiDAR-3DGS Training](#lidar-3dgs-training)  
 
 5. [Additional Notes](#additional-notes) 
+
+6. [How-To-Guide for Replicating LiDAR-3DGS with Our Data](#how-to-guide-for-replicating-lidar-3dgs-with-our-data)
 ---
 
 ## **LiDAR Data Processing & Color Mapping**
@@ -122,7 +125,7 @@ To  focus on unique LiDAR features, we introduce a color-based sampling techniqu
 
 ## **LiDAR–SfM Alignment**
 
-To merge the dense `LiDAR point cloud` with a sparse `ChromaFiltered SfM reconstruction` (e.g., COLMAP), we use CloudCompare:
+To merge the dense `ChromaFiltered LiDAR point cloud` with a sparse `SfM reconstruction` (e.g., COLMAP), we use CloudCompare:
 
 1. **Coarse Manual Alignment**  
    - Download/Install CloudCompare https://www.danielgm.net/cc/  
@@ -139,7 +142,10 @@ To merge the dense `LiDAR point cloud` with a sparse `ChromaFiltered SfM reconst
    ![alt text](image-1.png)
     - `Red aligned`: Data (LiDAR point cloud, will eventually move)
     - `Yellow reference`: Model (COLMAP SfM model, won't move) 
-   - Output: A single, fused point cloud saved as a `.PLY` for 3DGS training.
+3. **Merge Two Point Clouds**  
+  ![alt text](image-3.png)
+  - Select two point clouds (both `ChromaFiltered LiDAR point cloud` and `SfM reconstruction`) and press `Merge multiple clouds`.
+  - Output: A single, fused point cloud saved as a `.PLY` for 3DGS training.
 
 ---
 
@@ -149,13 +155,25 @@ To merge the dense `LiDAR point cloud` with a sparse `ChromaFiltered SfM reconst
 3. After the .ply extracted from `LiDAR-SfM Alignment` stage, use `ply_to_colmap_txt.py` to convert cloudcompare ply file into COLMAP readable txt file.  
 4. Paste it into `/gaussian-splatting/your_data/sparse/0/point3D.txt` after performing `convert.py` of your original image data.
 5. Run `train_lidar.py` for training.
+
 ---
-  
-  
+
 ## **Additional Notes**  
   - `extract_best.py`: a keyframe extractor program that we have used for our custom dataset
   - `LiDARRandomSampling.py`: program we used for comparison with randomsampling and ChromaFilter  
   - Dataset used in study: https://www.eth3d.net/datasets 
-  - For our custom dataset, we have included in `meiclablidar` folder. The pre-trained mnodel for this example is in `exampleoutput` folder we provided which can be checked through the SIBR viewer
+  - For our custom dataset, we have included in `meiclablidar` folder. The pre-trained model for this example is in `exampleoutput` folder we provided which can be checked through the SIBR viewer
   - LiDAR ply file + image dataset/video are required for your custom training
   - You can find our example Google Drive link in: https://drive.google.com/drive/folders/1m0OWiFNO1CpOMBa8FrSHZ8kzSDerXBo7?usp=sharing
+
+---
+
+## **How-To-Guide for Replicating LiDAR-3DGS with Our Data**
+1. In our google drive [link](https://drive.google.com/drive/folders/1m0OWiFNO1CpOMBa8FrSHZ8kzSDerXBo7?usp=sharing), download all the files.
+  - `meiclablidar` folder contains the original raw files (`images`, `LiDAR point clouds`, `ChromaFiltered` point clouds).
+  - `exampleoutput` folder contains fully trained LiDAR-3DGS .ply results which can be directly viewed with `SIBR` viewer. (You can use this to skip the `ChromaFilter`, `Alignment`, and `Training` processes.)
+2. Run `ChromaFilter.py` with `meiclab_raw.ply` in `/meiclidar/lidar_files` by changing `N` values. (These are already done in `/meiclidar/lidar_files/ChromaFilter` folder)
+3. Create `SfM Reconstruction` using COLMAP. (This can be found in `/meiclablidar/sparse/0/backup/meiclabsfm.ply`)
+4. Align two `ChromaFiltered LiDAR point cloud` and `SfM Reconstruction` with CloudCompare. (This can be found in `/meiclablidar/sparse/0/backup/meiclabmerged.ply`)
+5. Train 3DGS with this merged `meiclabmerged.ply` file.
+6. All trained dataset can be found in `exampleoutput` folder with various ChromaFiltered LiDAR point cloud versions.
