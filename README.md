@@ -169,11 +169,14 @@ To merge the dense `ChromaFiltered LiDAR point cloud` with a sparse `SfM reconst
 ---
 
 ## **How-To-Guide for Replicating LiDAR-3DGS with Our Data**
+**Make sure you have the original 3D Gaussian Splatting installed!**
 1. In our google drive [link](https://drive.google.com/drive/folders/1m0OWiFNO1CpOMBa8FrSHZ8kzSDerXBo7?usp=sharing), download all the files.
   - `meiclablidar` folder contains the original raw files (`images`, `LiDAR point clouds`, `ChromaFiltered` point clouds).
-  - `exampleoutput` folder contains fully trained LiDAR-3DGS .ply results which can be directly viewed with `SIBR` viewer. (You can use this to skip the `ChromaFilter`, `Alignment`, and `Training` processes.)
-2. Run `ChromaFilter.py` with `meiclab_raw.ply` in `/meiclidar/lidar_files` by changing `N` values. (These are already done in `/meiclidar/lidar_files/ChromaFilter` folder)
-3. Create `SfM Reconstruction` using COLMAP. (This can be found in `/meiclablidar/sparse/0/backup/meiclabsfm.ply`)
-4. Align two `ChromaFiltered LiDAR point cloud` and `SfM Reconstruction` with CloudCompare. (This can be found in `/meiclablidar/sparse/0/backup/meiclabmerged.ply`)
-5. Train 3DGS with this merged `meiclabmerged.ply` file.
+  - However, `exampleoutput` folder contains already pre-trained LiDAR-3DGS .ply results which can be directly viewed with 'SIBR` viewer. (You can use this to skip the below processes.)
+  - You can replicate
+2. Run `ChromaFilter.py` with `meiclab_raw.ply` in `/meiclidar/lidar_files` by changing `N` values.
+  - For your convinience, these are already done in `/meiclidar/lidar_files/ChromaFilter` folder
+3. Create 'SfM' using COLMAP using 'convert.py'. (This can be found in `/meiclablidar/sparse/0/backup/meiclabsfm.ply`)
+4. Align `ChromaFiltered LiDAR point cloud` and `SfM` with CloudCompare. (This can be found in `/meiclablidar/sparse/0/backup/meiclabmerged.ply`)
+5. Train 3DGS with this merged `meiclabmerged.ply` file using 'train_lidar.py'.
 6. All trained dataset can be found in `exampleoutput` folder with various ChromaFiltered LiDAR point cloud versions.
