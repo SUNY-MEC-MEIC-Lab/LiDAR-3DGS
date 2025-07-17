@@ -153,7 +153,7 @@ To merge the dense `ChromaFiltered LiDAR point cloud` with a sparse `SfM reconst
 1. Please install 3D Gaussian Splatting with https://github.com/graphdeco-inria/gaussian-splatting  
 2. Then, paste all files in `3DGS_custom` folder to your `/gaussian-splatting`.  
 3. After the .ply extracted from `LiDAR-SfM Alignment` stage, use `ply_to_colmap_txt.py` to convert cloudcompare ply file into COLMAP readable txt file.  
-4. Paste it into `/gaussian-splatting/your_data/sparse/0/point3D.txt` after performing `convert.py` of your original image data.
+4. Paste it into `/gaussian-splatting/your_data/sparse/0/points3D.txt` after performing `convert.py` of your original image data.
 5. Run `train_lidar.py` for training.
 
 ---
