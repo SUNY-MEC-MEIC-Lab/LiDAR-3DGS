@@ -30,6 +30,9 @@ In this paper, we introduce LiDAR-3DGS, a novel approach for integrating LiDAR d
 6. [How-To-Guide for Replicating LiDAR-3DGS with Our Data](#how-to-guide-for-replicating-lidar-3dgs-with-our-data)
 ---
 
+### Step-by-step guide and examples are available at 
+[How-To-Guide for Replicating LiDAR-3DGS with Our Data](#how-to-guide-for-replicating-lidar-3dgs-with-our-data)
+
 ## **LiDAR Data Processing & Color Mapping**
 
 To generate a dense, colorized LiDAR point cloud suitable for 3DGS training, we use a three‐stage pipeline.
