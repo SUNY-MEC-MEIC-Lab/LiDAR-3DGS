@@ -177,10 +177,10 @@ To merge the dense `ChromaFiltered LiDAR point cloud` with a sparse `SfM reconst
     - `exampleoutput` folder contains already pre-trained LiDAR-3DGS .ply results which can be directly viewed with 'SIBR` viewer. (You can use this to skip the below processes.)
     - `meiclablidar` folder contains the original raw files (`images`, `LiDAR point clouds`, `ChromaFiltered` point clouds).
 2. Run `ChromaFilter.py` with `meiclab_raw.ply` in `/meiclidar/lidar_files` by changing `N` values.
-  - For your convenience, these are already done in `/meiclidar/lidar_files/ChromaFilter` folder
-3. Create 'SfM' using COLMAP using 'convert.py'. (This can be found in `/meiclablidar/sparse/0/backup/meiclabsfm.ply`)
-  - e.g. Gaussian_Splatting/convert.py -s 'input folder location'
-4. Align `ChromaFiltered LiDAR point cloud` and `SfM` with CloudCompare. (This can be found in `/meiclablidar/sparse/0/backup/meiclabmerged.ply`)
-5. Train 3DGS using 'train_lidar.py'.
+  - For your convenience, precomputed results are in `/ChromaFiltered_Pointclouds` folder
+3. Create 'SfM' using COLMAP using 'convert.py'. (This can be found in `Finished_Models/meiclablidar/sparse/0/backup/meiclabsfm.ply`)
+  - e.g. `Gaussian_Splatting/convert.py -s 'input folder location'`
+4. Align the `ChromaFiltered LiDAR point cloud` and `SfM` in CloudCompare, then export a single merged PLY in `BINARY` format. (This can be found in `Aligned_PointClouds`)
+5. Train 3DGS using `train_lidar.py`.
   - e.g. Gaussian_Splatting/train_lidar.py -s 'input folder location'
-6. All trained dataset can be found in `exampleoutput` folder with various ChromaFiltered LiDAR point cloud versions.
+6. All the pre-trained dataset can be found in `/Finished_Models/exampleoutput` folder with various ChromaFiltered LiDAR point cloud versions.
