@@ -190,3 +190,4 @@ To merge the dense `ChromaFiltered LiDAR point cloud` with a sparse `SfM reconst
 6. Train 3DGS using `train_lidar.py`.
   - e.g. `Gaussian_Splatting/train_lidar.py -s <folder location>`
 7. All the pre-trained dataset can be found in `/Finished_Models/exampleoutput` folder with various ChromaFiltered LiDAR point cloud versions.
+  - We have also uploaded `LiDAR3DGS_Training_summary.xlsx` which contains all of our training records.
