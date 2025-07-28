@@ -188,5 +188,5 @@ To merge the dense `ChromaFiltered LiDAR point cloud` with a sparse `SfM reconst
   - The pre-aligned point clouds are inside `LiDAR3DGS_example/Aligned_PointClouds` ready to run in `train_lidar.py`.
 5. Use the `ply_to_colmap_txt.py` to convert the aligned point cloud `.ply` file to COLMAP readable `.txt` file then Paste the file inside `/gaussian-splatting/your_data/sparse/0` as `points3D.txt`    
 6. Train 3DGS using `train_lidar.py`.
-  - e.g. Gaussian_Splatting/train_lidar.py -s 'input folder location'
+  - e.g. `Gaussian_Splatting/train_lidar.py -s <folder location>`
 7. All the pre-trained dataset can be found in `/Finished_Models/exampleoutput` folder with various ChromaFiltered LiDAR point cloud versions.
