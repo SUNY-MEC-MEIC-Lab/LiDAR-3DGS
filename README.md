@@ -171,10 +171,13 @@ To merge the dense `ChromaFiltered LiDAR point cloud` with a sparse `SfM reconst
 ## **How-To-Guide for Replicating LiDAR-3DGS with Our Data**
 **Make sure you have the original 3D Gaussian Splatting installed!**
 1. In our google drive [link](https://drive.google.com/drive/folders/1m0OWiFNO1CpOMBa8FrSHZ8kzSDerXBo7?usp=sharing), download all the files.
-  - `meiclablidar` folder contains the original raw files (`images`, `LiDAR point clouds`, `ChromaFiltered` point clouds).
-  - However, `exampleoutput` folder contains already pre-trained LiDAR-3DGS .ply results which can be directly viewed with 'SIBR` viewer. (You can use this to skip the below processes.)
+  - `Aligned_PointClouds` folder contains aligned results of `ChromaFiltered LiDAR point clouds` and `SfM COLMAP` point clouds. (`n1`, `n5`, `n10`, `n20` each defines ChromaFilter)
+  - `ChromaFiltered_PointClouds` folder contains ChromaFiltered LiDAR point clouds.
+  - `Finished_Models` folder contains `exampleoutput` and `meiclablidar` sub-folders.
+    - `exampleoutput` folder contains already pre-trained LiDAR-3DGS .ply results which can be directly viewed with 'SIBR` viewer. (You can use this to skip the below processes.)
+    - `meiclablidar` folder contains the original raw files (`images`, `LiDAR point clouds`, `ChromaFiltered` point clouds).
 2. Run `ChromaFilter.py` with `meiclab_raw.ply` in `/meiclidar/lidar_files` by changing `N` values.
-  - For your convinience, these are already done in `/meiclidar/lidar_files/ChromaFilter` folder
+  - For your convenience, these are already done in `/meiclidar/lidar_files/ChromaFilter` folder
 3. Create 'SfM' using COLMAP using 'convert.py'. (This can be found in `/meiclablidar/sparse/0/backup/meiclabsfm.ply`)
   - e.g. Gaussian_Splatting/convert.py -s 'input folder location'
 4. Align `ChromaFiltered LiDAR point cloud` and `SfM` with CloudCompare. (This can be found in `/meiclablidar/sparse/0/backup/meiclabmerged.ply`)
