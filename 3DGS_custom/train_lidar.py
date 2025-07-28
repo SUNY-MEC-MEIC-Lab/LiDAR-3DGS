@@ -22,6 +22,7 @@ from scene import Scene, GaussianModel
 from utils.general_utils import safe_state
 import uuid
 from tqdm import tqdm
+from pathlib import Path
 from utils.image_utils import psnr
 from argparse import ArgumentParser, Namespace
 from arguments import ModelParams, PipelineParams, OptimizationParams
@@ -101,7 +102,7 @@ def training(dataset, opt, pipe, testing_iterations, saving_iterations, checkpoi
     accumulated_time = 0.0  # Initialize accumulated time
 
     # Initialize CSV file and writer
-    csv_path = r'[\gaussian-splatting\CSVData\training_data.csv]'
+    csv_path = (Path(__file__).resolve().parent / "CSVData" / "training_data.csv")
     csv_file = open(csv_path, mode='w', newline='')
     csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     csv_writer.writerow(['Iteration', 'SSIM', 'L1', 'PSNR', 'Loss', 'FPS', 'Iteration Time'])
@@ -300,12 +301,12 @@ if __name__ == "__main__":
 
     # Update CSV with model sizes
     model_sizes = measure_model_sizes(r'[\gaussian-splatting\output]')
-    csv_path = r'[\gaussian-splatting\CSVData\training_data.csv]'
+    csv_path = (Path(__file__).resolve().parent / "CSVData" / "training_data.csv")
     update_csv_with_model_sizes(csv_path, model_sizes)
 
     # Compute and display final SSIM value
     final_ssim = None
-    csv_path = r'[\gaussian-splatting\CSVData\training_data.csv]'
+    csv_path = (Path(__file__).resolve().parent / "CSVData" / "training_data.csv")
 
     # Read the last SSIM value from the CSV
     with open(csv_path, mode='r') as csv_file:
